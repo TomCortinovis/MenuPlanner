@@ -59,22 +59,29 @@
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Popups\Managers\IPopupManager.cs" />
     <Compile Include="Popups\Managers\PopupManager.cs" />
+    <Compile Include="Popups\Models\MessagePopupParameters.cs" />
     <Compile Include="Popups\Models\PlanningEditionPopupParameters.cs" />
     <Compile Include="Popups\Models\Popup.cs" />
     <Compile Include="Popups\Models\PopupClosedEventArgs.cs" />
     <Compile Include="Popups\Models\PopupParameters.cs" />
     <Compile Include="Popups\Models\ProfileEditionPopupParameters.cs" />
+    <Compile Include="Popups\ViewModels\MessageViewModel.cs" />
+    <Compile Include="Popups\Views\MessageView.xaml.cs">
+      <DependentUpon>MessageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +96,12 @@
       <Project>{f8356b25-d214-48dc-9a77-76ffbebff909}</Project>
       <Name>MenuPlanner.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Popups\Views\MessageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

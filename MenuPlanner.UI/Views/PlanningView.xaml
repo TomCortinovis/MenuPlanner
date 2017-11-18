@@ -42,7 +42,7 @@
             </Grid.ColumnDefinitions>
             <Button Content="&lt;" Grid.Column="0" Padding="5,0" Visibility="{Binding Paginator.HasPreviousData, Converter={x:Static converters:Converters.BoolToVisibility}}" Command="{Binding PreviousPageCommand}" />
             <Button Content="&gt;" Grid.Column="2" Padding="5,0" Visibility="{Binding Paginator.HasNextData, Converter={x:Static converters:Converters.BoolToVisibility}}" Command="{Binding NextPageCommand}" />
-            <ItemsControl ItemsSource="{Binding Schedule}" Grid.Column="1">
+            <ItemsControl ItemsSource="{Binding Schedule}" Grid.Column="1" x:Name="Schedule">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderThickness="1" BorderBrush="{StaticResource AccentColor}" CornerRadius="5" Margin="5">
@@ -57,7 +57,7 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <WrapPanel Margin="0,5">
-                                                    <TextBlock TextWrapping="Wrap">
+                                                    <TextBlock TextWrapping="Wrap" Foreground="{StaticResource ContrastColor}">
                                                         <TextBlock.Text>
                                                             <MultiBinding StringFormat="{}{0} : {1}">
                                                                 <Binding Path="Time" Converter="{x:Static converters:Converters.ToTimeString}" />

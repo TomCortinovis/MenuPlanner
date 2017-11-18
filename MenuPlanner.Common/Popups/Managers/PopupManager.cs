@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using MenuPlanner.Common.Popups.Models;
+using MenuPlanner.Common.Popups.ViewModels;
 
 namespace MenuPlanner.Common.Popups.Managers
 {
@@ -32,6 +33,14 @@ namespace MenuPlanner.Common.Popups.Managers
             return this;
         }
 
+        public IPopupManager ShowMessage(string message)
+        {
+            return ShowPopup<MessageViewModel>(new MessagePopupParameters
+            {
+                Message = message
+            });
+        }
+
         public void OnClose(Action<PopupClosedEventArgs> toExecuteAction)
         {
             _toExecuteAction = toExecuteAction;
@@ -39,7 +48,7 @@ namespace MenuPlanner.Common.Popups.Managers
 
         private void CurrentPopup_PopupClosed(object sender, PopupClosedEventArgs e)
         {
-            _toExecuteAction(e);
+            _toExecuteAction?.Invoke(e);
             CurrentPopup = null;
             PopupChanged?.Invoke(this, null);
         }

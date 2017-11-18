@@ -13,7 +13,9 @@
         xmlns:modules="clr-namespace:MenuPlanner.Modules;assembly=MenuPlanner.Modules"
         xmlns:converters="clr-namespace:MenuPlanner.Common.Converters;assembly=MenuPlanner.Common"
         xmlns:viewModels="clr-namespace:MenuPlanner.Modules.Profiles.ViewModels;assembly=MenuPlanner.Modules"
+        xmlns:viewModels2="clr-namespace:MenuPlanner.Common.Popups.ViewModels;assembly=MenuPlanner.Common"
         xmlns:views1="clr-namespace:MenuPlanner.Modules.Profiles.Views;assembly=MenuPlanner.Modules"
+        xmlns:views2="clr-namespace:MenuPlanner.Common.Popups.Views;assembly=MenuPlanner.Common"
         mc:Ignorable="d"
         x:Name="ContainerWindow"
         Title="MainWindow" WindowState="Maximized"
@@ -63,8 +65,8 @@
                     <DataTemplate DataType="{x:Type viewModels:ProfileEditionViewModel}">
                         <views1:ProfileEditionView />
                     </DataTemplate>
-                    <DataTemplate DataType="{x:Type popupsVm:PrintingViewModel}">
-                        <popups:PrintingView />
+                    <DataTemplate DataType="{x:Type viewModels2:MessageViewModel}">
+                        <views2:MessageView />
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>

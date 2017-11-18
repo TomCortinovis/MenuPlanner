@@ -83,7 +83,6 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PlanningViewModel.cs" />
     <Compile Include="ViewModel\Popups\PlanningEditionViewModel.cs" />
-    <Compile Include="ViewModel\Popups\PrintingViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -92,9 +91,6 @@
     </Compile>
     <Compile Include="Views\Popups\PlanningEditionView.xaml.cs">
       <DependentUpon>PlanningEditionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\PrintingView.xaml.cs">
-      <DependentUpon>PrintingView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -107,10 +103,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Popups\PlanningEditionView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\PrintingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

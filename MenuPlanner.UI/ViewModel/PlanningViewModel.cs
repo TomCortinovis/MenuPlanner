@@ -13,6 +13,8 @@ using MenuPlanner.Common.Popups.Models;
 using MenuPlanner.UI.Managers;
 using MenuPlanner.UI.ViewModel.Popups;
 using MenuPlanner.Utils.Transverse;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace MenuPlanner.UI.ViewModel
 {
@@ -54,6 +56,8 @@ namespace MenuPlanner.UI.ViewModel
             set { Set(ref _currentProfile, value); }
         }
 
+        public event EventHandler ScreenshotRequested;
+
         public ICommand ChangePlanningModeCommand { get; }
 
         public ICommand NextPageCommand { get; }
@@ -76,7 +80,19 @@ namespace MenuPlanner.UI.ViewModel
             NextPageCommand = new RelayCommand(OnNextPageRequested);
             PreviousPageCommand = new RelayCommand(OnPreviousPageRequested);
             PlanningSelectCommand = new RelayCommand<MealSchedule>(OnPlanningSelected);
-            PrintCommand = new RelayCommand(PrintPlanning);
+            PrintCommand = new RelayCommand(AskForScreenshot);
+        }
+
+        public void SaveScreenshot(BitmapEncoder encoder)
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "planning.png");
+
+            using (Stream stm = File.Create(path))
+            {
+                encoder.Save(stm);
+            }
+
+            _popupManager.ShowMessage($"La capture du planning a bien été enregistrée au chemin suivant : {path}");
         }
 
         private void OnPlanningSelected(MealSchedule meal)
@@ -145,13 +161,9 @@ namespace MenuPlanner.UI.ViewModel
             Schedule = _fullSchedule.Skip((Paginator.CurrentPage - 1) * Paginator.PageSize).Take(Paginator.PageSize).ToList();
         }
 
-        private void PrintPlanning()
+        private void AskForScreenshot()
         {
-            _popupManager.ShowPopup<PrintingViewModel>(new PlanningEditionPopupParameters
-            {
-                Schedule = Schedule.First(),
-                Profile = CurrentProfile
-            }).OnClose(PlanningPopupClosed);
+            ScreenshotRequested(this, EventArgs.Empty);
         }
     }
 }

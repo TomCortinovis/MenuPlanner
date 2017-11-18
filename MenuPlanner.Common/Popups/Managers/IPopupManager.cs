@@ -14,6 +14,8 @@ namespace MenuPlanner.Common.Popups.Managers
 
         IPopupManager ShowPopup<T>(PopupParameters parameters = null) where T : Popup;
 
+        IPopupManager ShowMessage(string message);
+
         void OnClose(Action<PopupClosedEventArgs> toExecuteAction);
     }
 }

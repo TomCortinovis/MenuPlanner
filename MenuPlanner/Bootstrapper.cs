@@ -24,6 +24,7 @@ using MenuPlanner.Modules.Profiles.Models;
 using MenuPlanner.Modules.Profiles.ViewModels;
 using MenuPlanner.Utils.Transverse;
 using MenuPlanner.Utils.Helpers;
+using MenuPlanner.Common.Popups.ViewModels;
 
 namespace MenuPlanner
 {
@@ -91,7 +92,7 @@ namespace MenuPlanner
             _registry.Register<MainWindowViewModel>();
             _registry.Register<PlanningEditionViewModel>();
             _registry.Register<ProfileEditionViewModel>();
-            _registry.Register<PrintingViewModel>();
+            _registry.Register<MessageViewModel>();
             _registry.Register<IPage, PlanningViewModel>(new PerContainerLifetime());
         }
 

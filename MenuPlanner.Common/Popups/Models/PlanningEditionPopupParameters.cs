@@ -1,4 +1,5 @@
 ﻿using MenuPlanner.Business.BusinessObjects;
+using System.Collections.Generic;
 
 namespace MenuPlanner.Common.Popups.Models
 {
