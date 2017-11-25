@@ -15,13 +15,16 @@ using MenuPlanner.UI.ViewModel.Popups;
 using MenuPlanner.Utils.Transverse;
 using System.Windows.Media.Imaging;
 using System.IO;
+using MenuPlanner.Services;
+using MenuPlanner.Common;
 
 namespace MenuPlanner.UI.ViewModel
 {
-    public class PlanningViewModel : ViewModelBase, IPage
+    public class PlanningViewModel : BaseViewModel, IPage
     {
         private readonly IMealService _mealService;
         private readonly IPopupManager _popupManager;
+        private readonly IFileService _fileService;
         private List<MealSchedule> _fullSchedule;
 
         private List<MealSchedule> _schedule;
@@ -49,13 +52,6 @@ namespace MenuPlanner.UI.ViewModel
             set { Set(ref _paginator, value); }
         }
 
-        private Profile _currentProfile;
-        public Profile CurrentProfile
-        {
-            get { return _currentProfile; }
-            set { Set(ref _currentProfile, value); }
-        }
-
         public event EventHandler ScreenshotRequested;
 
         public ICommand ChangePlanningModeCommand { get; }
@@ -68,13 +64,16 @@ namespace MenuPlanner.UI.ViewModel
 
         public ICommand PrintCommand { get; }
 
-        public PlanningViewModel(IMealService mealService, ISessionService sessionService, IPaginationManager paginationManager, IPopupManager popupManager)
+        public string Name => "Planning";
+
+        public int Order => 1;
+
+        public PlanningViewModel(IMealService mealService, ISessionService sessionService, IPaginationManager paginationManager, IPopupManager popupManager, IFileService fileService) : base(sessionService)
         {
             _mealService = mealService;
             _popupManager = popupManager;
+            _fileService = fileService;
             Paginator = paginationManager;
-
-            sessionService.ProfileChanged += SessionService_ProfileChanged;
 
             ChangePlanningModeCommand = new RelayCommand<PlanningMode>(OnChangePlanningMode);
             NextPageCommand = new RelayCommand(OnNextPageRequested);
@@ -85,12 +84,7 @@ namespace MenuPlanner.UI.ViewModel
 
         public void SaveScreenshot(BitmapEncoder encoder)
         {
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "planning.png");
-
-            using (Stream stm = File.Create(path))
-            {
-                encoder.Save(stm);
-            }
+            string path = _fileService.SaveScreenshot(encoder);
 
             _popupManager.ShowMessage($"La capture du planning a bien été enregistrée au chemin suivant : {path}");
         }
@@ -144,10 +138,8 @@ namespace MenuPlanner.UI.ViewModel
             LoadSchedule();
         }
 
-        private void SessionService_ProfileChanged(object sender, Profile e)
+        protected override void ProfileChangedOverride()
         {
-            CurrentProfile = e;
-
             _fullSchedule = _mealService.GetMealScheduleForProfile(CurrentProfile).ToList();
 
             Paginator.TotalNumberOfElements = _fullSchedule.Count;

@@ -83,6 +83,7 @@
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\PlanningViewModel.cs" />
     <Compile Include="ViewModel\Popups\PlanningEditionViewModel.cs" />
+    <Compile Include="ViewModel\StockViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -91,6 +92,9 @@
     </Compile>
     <Compile Include="Views\Popups\PlanningEditionView.xaml.cs">
       <DependentUpon>PlanningEditionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StockView.xaml.cs">
+      <DependentUpon>StockView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +107,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Popups\PlanningEditionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StockView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +130,10 @@
     <ProjectReference Include="..\MenuPlanner.Modules\MenuPlanner.Modules.csproj">
       <Project>{11f10d1a-5e39-4383-bfd4-71defc2e014d}</Project>
       <Name>MenuPlanner.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MenuPlanner.Services\MenuPlanner.Services.csproj">
+      <Project>{2ec88a79-f973-4885-97c3-b6fc8da61f66}</Project>
+      <Name>MenuPlanner.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\MenuPlanner.Utils\MenuPlanner.Utils.csproj">
       <Project>{f8356b25-d214-48dc-9a77-76ffbebff909}</Project>

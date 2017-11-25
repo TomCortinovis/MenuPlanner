@@ -145,6 +145,10 @@
       <Project>{37e0fd32-fd00-42f3-b332-daaa1854e2e7}</Project>
       <Name>MenuPlanner.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MenuPlanner.DataAccess.File\MenuPlanner.DataAccess.Files.csproj">
+      <Project>{0e483241-789a-41b6-be73-8480373d44fa}</Project>
+      <Name>MenuPlanner.DataAccess.Files</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MenuPlanner.DataAccess\MenuPlanner.DataAccess.csproj">
       <Project>{8ba409dc-e459-4c09-8aa5-b87585171f2a}</Project>
       <Name>MenuPlanner.DataAccess</Name>
@@ -152,6 +156,10 @@
     <ProjectReference Include="..\MenuPlanner.Modules\MenuPlanner.Modules.csproj">
       <Project>{11f10d1a-5e39-4383-bfd4-71defc2e014d}</Project>
       <Name>MenuPlanner.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MenuPlanner.Services\MenuPlanner.Services.csproj">
+      <Project>{2ec88a79-f973-4885-97c3-b6fc8da61f66}</Project>
+      <Name>MenuPlanner.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\MenuPlanner.UI\MenuPlanner.UI.csproj">
       <Project>{c2ae49e3-ef61-4b2b-9d18-392cc5fc0bdc}</Project>

@@ -25,6 +25,8 @@ using MenuPlanner.Modules.Profiles.ViewModels;
 using MenuPlanner.Utils.Transverse;
 using MenuPlanner.Utils.Helpers;
 using MenuPlanner.Common.Popups.ViewModels;
+using MenuPlanner.Services;
+using MenuPlanner.DataAccess.Files;
 
 namespace MenuPlanner
 {
@@ -93,17 +95,19 @@ namespace MenuPlanner
             _registry.Register<PlanningEditionViewModel>();
             _registry.Register<ProfileEditionViewModel>();
             _registry.Register<MessageViewModel>();
-            _registry.Register<IPage, PlanningViewModel>(new PerContainerLifetime());
+            _registry.RegisterAssembly(typeof(IPage).Assembly, (serviceType, implementingType) => serviceType == typeof(IPage));
         }
 
         private void RegisterServices()
         {
             _registry.Register<IProfileService, ProfileService>();
             _registry.Register<IMealService, MealService>();
+            _registry.Register<IFileService, FileService>();
             _registry.Register<ISessionService, SessionService>(new PerContainerLifetime());
 
             _registry.Register<IProfileRepository, EntityProfileRepository>();
             _registry.Register<IMealRepository, EntityMealRepository>();
+            _registry.Register<IFileRepository, FileRepository>();
         }
 
         public void Compose(IServiceRegistry serviceRegistry)

@@ -8,5 +8,8 @@ namespace MenuPlanner.UI.Models
 {
     public interface IPage
     {
+        string Name { get; }
+
+        int Order { get; }
     }
 }

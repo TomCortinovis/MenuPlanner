@@ -23,7 +23,13 @@ namespace MenuPlanner.UI.Views
             InitializeComponent();
 
             Loaded += (_, __) => ViewModel.ScreenshotRequested += ViewModel_ScreenshotRequested;
-            Unloaded += (_, __) => ViewModel.ScreenshotRequested -= ViewModel_ScreenshotRequested;
+            Unloaded += (_, __) =>
+            {
+                if (ViewModel != null)
+                {
+                    ViewModel.ScreenshotRequested -= ViewModel_ScreenshotRequested;
+                }
+            };
         }
 
         private void ViewModel_ScreenshotRequested(object sender, System.EventArgs e)

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPlanner", "MenuPlanner\MenuPlanner.csproj", "{D04DF107-70A0-4C9C-A938-F1D196EDA954}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Data Access", "3-Data Access", "{E29E05C5-DE11-4340-A794-EFA912445CE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPlanner.Common", "MenuPlanner.Common\MenuPlanner.Common.csproj", "{37E0FD32-FD00-42F3-B332-DAAA1854E2E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPlanner.Services", "MenuPlanner.Services\MenuPlanner.Services.csproj", "{2EC88A79-F973-4885-97C3-B6FC8DA61F66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPlanner.DataAccess.Files", "MenuPlanner.DataAccess.File\MenuPlanner.DataAccess.Files.csproj", "{0E483241-789A-41B6-BE73-8480373D44FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,14 @@ Global
 		{37E0FD32-FD00-42F3-B332-DAAA1854E2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37E0FD32-FD00-42F3-B332-DAAA1854E2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37E0FD32-FD00-42F3-B332-DAAA1854E2E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EC88A79-F973-4885-97C3-B6FC8DA61F66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EC88A79-F973-4885-97C3-B6FC8DA61F66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EC88A79-F973-4885-97C3-B6FC8DA61F66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EC88A79-F973-4885-97C3-B6FC8DA61F66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E483241-789A-41B6-BE73-8480373D44FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E483241-789A-41B6-BE73-8480373D44FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E483241-789A-41B6-BE73-8480373D44FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E483241-789A-41B6-BE73-8480373D44FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,5 +83,10 @@ Global
 		{C2AE49E3-EF61-4B2B-9D18-392CC5FC0BDC} = {A709E19B-7D6E-4766-ABC5-93DD86D6F323}
 		{11F10D1A-5E39-4383-BFD4-71DEFC2E014D} = {A709E19B-7D6E-4766-ABC5-93DD86D6F323}
 		{37E0FD32-FD00-42F3-B332-DAAA1854E2E7} = {A709E19B-7D6E-4766-ABC5-93DD86D6F323}
+		{2EC88A79-F973-4885-97C3-B6FC8DA61F66} = {8F503887-BCF4-4546-8BF5-EE164A34A0FD}
+		{0E483241-789A-41B6-BE73-8480373D44FA} = {E29E05C5-DE11-4340-A794-EFA912445CE7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F22FB46-5DA8-49E6-8B95-606F2D00AB02}
 	EndGlobalSection
 EndGlobal

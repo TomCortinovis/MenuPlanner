@@ -58,13 +58,16 @@ namespace MenuPlanner.UI.ViewModel
 
         public List<IModule> Modules { get; }
 
+        public List<IPage> Pages { get; }
+
         public ICommand ClosePopupCommand { get; }
 
-        public MainWindowViewModel(IPage page, IEnumerable<IModule> modules, IProfileService profileService, ISessionService sessionService, IPopupManager popupManager)
+        public MainWindowViewModel(IEnumerable<IPage> pages, IEnumerable<IModule> modules, IProfileService profileService, ISessionService sessionService, IPopupManager popupManager)
         {
             _sessionService = sessionService;
 
-            MainPage = page;
+            Pages = pages.OrderBy(p => p.Order).ToList();
+            MainPage = Pages.FirstOrDefault();
 
             Modules = modules.OrderBy(m => m.Order).ToList();
             SelectedModule = Modules.FirstOrDefault();
