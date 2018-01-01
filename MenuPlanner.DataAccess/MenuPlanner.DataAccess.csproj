@@ -81,11 +81,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Domain\ItemTypeDto.cs" />
     <Compile Include="EntityFramework\Domain\MealDto.cs" />
+    <Compile Include="EntityFramework\Domain\StockItemDto.cs" />
     <Compile Include="EntityFramework\MenuPlannerContext.cs" />
     <Compile Include="EntityFramework\Domain\ProfileDto.cs" />
+    <Compile Include="EntityFramework\Repositories\EntityItemTypeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EntityMealRepository.cs" />
     <Compile Include="EntityFramework\Repositories\EntityProfileRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\EntityStockRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

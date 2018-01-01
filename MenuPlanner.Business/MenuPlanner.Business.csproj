@@ -64,18 +64,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\ItemType.cs" />
     <Compile Include="BusinessObjects\Meal.cs" />
     <Compile Include="BusinessObjects\MealSchedule.cs" />
     <Compile Include="BusinessObjects\Profile.cs" />
+    <Compile Include="BusinessObjects\StockItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMealRepository.cs" />
+    <Compile Include="Repositories\IItemTypeRepository.cs" />
     <Compile Include="Repositories\IProfileRepository.cs" />
+    <Compile Include="Repositories\IStockRepository.cs" />
+    <Compile Include="Services\Contracts\IItemTypeService.cs" />
     <Compile Include="Services\Contracts\IMealService.cs" />
     <Compile Include="Services\Contracts\IProfileService.cs" />
     <Compile Include="Services\Contracts\ISessionService.cs" />
+    <Compile Include="Services\Contracts\IStockService.cs" />
+    <Compile Include="Services\Implementations\ItemTypeService.cs" />
     <Compile Include="Services\Implementations\MealService.cs" />
     <Compile Include="Services\Implementations\ProfileService.cs" />
     <Compile Include="Services\Implementations\SessionService.cs" />
+    <Compile Include="Services\Implementations\StockService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

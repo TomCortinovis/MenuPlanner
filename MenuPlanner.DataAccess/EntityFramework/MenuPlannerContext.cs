@@ -12,6 +12,8 @@ namespace MenuPlanner.DataAccess.EntityFramework
     {
         public DbSet<MealDto> Meals { get; set; }
         public DbSet<ProfileDto> Profiles { get; set; }
+        public DbSet<StockItemDto> Stock { get; set; }
+        public DbSet<ItemTypeDto> ItemTypes { get; set; }
 
         public MenuPlannerContext() : base("name=MenuPlannerConnectionString")
         {

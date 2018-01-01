@@ -46,6 +46,10 @@ namespace MenuPlanner
                     cfg.CreateMap<Meal, MealDto>();
                     cfg.CreateMap<Business.BusinessObjects.Profile, ProfileModel>();
                     cfg.CreateMap<ProfileModel, Business.BusinessObjects.Profile>();
+                    cfg.CreateMap<StockItemDto, StockItem>();
+                    cfg.CreateMap<StockItem, StockItemDto>();
+                    cfg.CreateMap<ItemTypeDto, ItemType>();
+                    cfg.CreateMap<ItemType, ItemTypeDto>();
 
                     cfg.CreateMap<ProfileDto, Business.BusinessObjects.Profile>()
                        .ForMember(dest => dest.SelectedTimes, opt => opt.MapFrom(src => EnumUtils.ListFromMask<TimeSlot>((TimeSlot)src.SelectedTimes)));
@@ -103,11 +107,15 @@ namespace MenuPlanner
             _registry.Register<IProfileService, ProfileService>();
             _registry.Register<IMealService, MealService>();
             _registry.Register<IFileService, FileService>();
+            _registry.Register<IStockService, StockService>();
+            _registry.Register<IItemTypeService, ItemTypeService>();
             _registry.Register<ISessionService, SessionService>(new PerContainerLifetime());
 
             _registry.Register<IProfileRepository, EntityProfileRepository>();
             _registry.Register<IMealRepository, EntityMealRepository>();
             _registry.Register<IFileRepository, FileRepository>();
+            _registry.Register<IStockRepository, EntityStockRepository>();
+            _registry.Register<IItemTypeRepository, EntityItemTypeRepository>();
         }
 
         public void Compose(IServiceRegistry serviceRegistry)

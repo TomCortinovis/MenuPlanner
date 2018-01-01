@@ -1,5 +1,4 @@
-﻿using MenuPlanner.Utils.Transverse;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,18 +8,12 @@ using System.Threading.Tasks;
 
 namespace MenuPlanner.DataAccess.EntityFramework.Domain
 {
-    [Table("Profiles")]
-    public class ProfileDto
+    [Table("ItemTypes")]
+    public class ItemTypeDto
     {
         [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public int SelectedTimes { get; set; }
-
-        public virtual ICollection<MealDto> Meals { get; set; }
-
-        public virtual ICollection<StockItemDto> Stock { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace MenuPlanner.Business.BusinessObjects
         public IEnumerable<TimeSlot> SelectedTimes { get; set; }
 
         public IEnumerable<Meal> Meals { get; set; }
+
+        public IEnumerable<StockItem> Stock { get; set; }
     }
 }
